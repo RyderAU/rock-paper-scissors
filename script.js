@@ -24,36 +24,35 @@ function playRound(playerSelection, computerSelection) {
     console.log('the computer has selected ' + computerSelection);
     if (playerSelection === computerSelection) {
         // draw
-        console.log("it's a draw!");
+        return "it's a draw!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         // player wins
         playerRounds++;
-        console.log('player wins!');
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         // player wins
         playerRounds++;
-        console.log('player wins!');
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         // player wins
         playerRounds++;
-        console.log('player wins!');
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else {
         // computer wins
         computerRounds++;
-        console.log('computer wins!');
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
     }
-
 }
 
 function game() {
     for (i = 1 ; i <= 5 ; i++) {
         let playerSelection = prompt(`Round ${i}: What is your play?`).toLowerCase();
         console.log('round ' + i)
-        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
     }
     console.log(`SCORE: player - ${playerRounds} computer - ${computerRounds}`)
     if (playerRounds === computerRounds) {
-        console.log('GANE IS A DRAW');
+        console.log('GAME IS A DRAW');
     } else if (playerRounds > computerRounds) {
         console.log('PLAYER WINS THE GAME');
     } else {
