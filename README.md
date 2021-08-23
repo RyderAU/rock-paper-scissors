@@ -1,6 +1,6 @@
 # rock-paper-scissors
 ## Description
-Game of rock, paper, scissors played in the console.
+Game of rock, paper, scissors played in the console. Currently has basic functionality and output displayed in the browser console. Project will be revisited to add a graphical user interface and possibly expand on functionality.
 ## Problem Solving
 ### Understand the Problem
 The program will play 5 rounds of the game rock, paper, scissors in the browser console. At the start of each round, both the player and the computer will make a selection and the winner will be determined. At the end of the 5 rounds, whoever has the most round wins, wins the game.

@@ -19,6 +19,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt(`Round ${i}: What is your play?`).toLowerCase();
     computerSelection = computerPlay();
     console.log('the player has selected ' + playerSelection)
     console.log('the computer has selected ' + computerSelection);
@@ -46,8 +47,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     for (i = 1 ; i <= 5 ; i++) {
-        let playerSelection = prompt(`Round ${i}: What is your play?`).toLowerCase();
-        console.log('round ' + i)
+        console.log(`Round ${i}:`)
         console.log(playRound(playerSelection, computerSelection));
     }
     console.log(`SCORE: player - ${playerRounds} computer - ${computerRounds}`)
