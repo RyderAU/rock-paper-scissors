@@ -7,9 +7,13 @@ The program will play 5 rounds of the game rock, paper, scissors in the browser 
 ### Plan
 #### Pseudocode
 Take the user's selection and set the computer's selection
+
 Compare the selections
+
 Increment the winner's score by one
+
 Loop 5 times
+
 At the end of the 5 loops, declare the winner
 ### Divide and Conquer
 Create functionality to take a user's input and check it with console.log(). Then implement a way to set a random selection for the computer. Do this for one round and then loop it 5 times.
