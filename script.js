@@ -46,10 +46,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for (i = 1 ; i <= 5 ; i++) {
-        console.log(`Round ${i}:`)
-        console.log(playRound(playerSelection, computerSelection));
-    }
+    console.log(`Round ${i}:`)
+    console.log(playRound(playerSelection, computerSelection));
+        
     console.log(`SCORE: player - ${playerRounds} computer - ${computerRounds}`)
     if (playerRounds === computerRounds) {
         console.log('GAME IS A DRAW');
