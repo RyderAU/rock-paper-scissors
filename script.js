@@ -8,6 +8,7 @@ let computerRounds = 0;
 const buttons = document.querySelectorAll('#btn');
 buttons.forEach(button => button.addEventListener('click', playRound));
 
+const selections = document.querySelector('#selections');
 const results = document.querySelector('#results');
 const score = document.querySelector('#score');
 
@@ -27,8 +28,8 @@ function computerPlay() {
 function playRound(e) {
     playerSelection = e.target.value;
     computerSelection = computerPlay();
-    console.log('the player has selected ' + playerSelection)
-    console.log('the computer has selected ' + computerSelection);
+
+    selections.textContent = `You selected ${playerSelection}, the computer selected ${computerSelection}`;
 
     if (playerSelection === computerSelection) {
         // draw
