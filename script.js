@@ -3,7 +3,13 @@ let computerSelection = '';
 let playerRounds = 0;
 let computerRounds = 0;
 
-game();
+// game();
+
+const rockBtn = document.querySelector('#rockBtn');
+rockBtn.addEventListener('click', playRound);
+
+const results = document.querySelector('#results');
+const score = document.querySelector('#score');
 
 // Randomly returns either 'Rock', 'Paper' or 'Scissors'.
 function computerPlay() {
@@ -18,43 +24,54 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = prompt(`Round ${i}: What is your play?`).toLowerCase();
+function playRound() {
+
+    playerSelection = rockBtn.value;
     computerSelection = computerPlay();
     console.log('the player has selected ' + playerSelection)
     console.log('the computer has selected ' + computerSelection);
+
+    
+
+    
+
     if (playerSelection === computerSelection) {
         // draw
-        return "it's a draw!";
+        results.textContent = "it's a draw!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         // player wins
         playerRounds++;
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         // player wins
         playerRounds++;
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         // player wins
         playerRounds++;
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        results.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     } else {
         // computer wins
         computerRounds++;
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        results.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    score.textContent = `player: ${playerRounds}, computer: ${computerRounds}`;
+    if (playerRounds === 5 || computerRounds === 5) {
+        results.textContent = 'GAME IS FINISHED';
     }
 }
 
 function game() {
-    console.log(`Round ${i}:`)
-    console.log(playRound(playerSelection, computerSelection));
+    while (playerRounds !== 5 && computerRounds !== 5) {
+        playRound(playerSelection, computerSelection);
+    }
         
     console.log(`SCORE: player - ${playerRounds} computer - ${computerRounds}`)
     if (playerRounds === computerRounds) {
-        console.log('GAME IS A DRAW');
+        results.textContent = 'GAME IS A DRAW';
     } else if (playerRounds > computerRounds) {
-        console.log('PLAYER WINS THE GAME');
+        results.textContent = 'PLAYER WINS THE GAME';
     } else {
-        console.log('COMPUTER WINS THE GAME');
+        results.textContent = 'COMPUTER WINS THE GAME';
     }
 }
